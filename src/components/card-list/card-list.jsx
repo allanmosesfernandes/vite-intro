@@ -3,13 +3,19 @@ export class CardList extends Component {
 
   render() {
     const { monsters } = this.props;
-    console.log(monsters)
     return (
-      <div>
+      <div className='card-list'>
         {
-            monsters.map((monster, index) => {
-              return <h1 key={index}>{monster.name}</h1>
-            })
+          monsters.map((monster, index) => {
+              return <div key={index}>
+                <img 
+                  alt={`${monster.name} img`} 
+                  src={`https://robohash.org/${index}?set=set2`}/>
+
+                  <h1>{monster.name}</h1>
+                  <h4>{monster.email}</h4>
+              </div>
+          })
         }
       </div>
     )

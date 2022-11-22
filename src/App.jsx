@@ -32,20 +32,19 @@ export class App extends Component {
   }
 
   render() {
+    
     const filterdMonsters = this.state.monsters.filter((monster) => {
       return monster.name.toLocaleLowerCase().includes(this.state.searchText)
     })
     return (
       <div>
-        <input 
-          type='search' 
-          placeholder='enter monster name' 
-          onChange={this.searchFunction} 
-          className='SearchBox' 
-        />
+        <SearchBox 
+          placeholder='Enter name of monster'
+          classname='monsters-search-box' 
+          onChangeHandler = {this.searchFunction}/>
 
         <CardList monsters={filterdMonsters} />
-        <SearchBox />
+       
       </div>
     )
   }
