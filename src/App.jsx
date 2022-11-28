@@ -10,10 +10,13 @@ import React, { Component } from 'react'
 const App = () => {
 
   const [searchString, setSearchString] = useState('');//declaring Inital State for search field
+  const [monsters,setMonsters] = useState([]);
+  console.log('render');
+
   const onSearchChange = (event) => {
   const searchField = event.target.value.toLocaleLowerCase();
   setSearchString(searchField);
-}
+  }
 
   return (
     <SearchBox 
