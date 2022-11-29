@@ -11,14 +11,24 @@ const App = () => {
 
   const [searchString, setSearchString] = useState('');//declaring Inital State for search field
   const [monsters,setMonsters] = useState([]);
-  console.log('from app');
+  const [filteredMonsters, setFilteredMonsters] = useState(monsters);
 
+  //==Fetching Data from API==//
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then(monsters => setMonsters(monsters));
   }, [])
   
+
+  useEffect(() => {
+    const newfilteredMonsters = monsters.filter((monster) => {
+    return monster.name.toLocaleLowerCase().includes(searchString);
+  })
+  setFilteredMonsters(newfilteredMonsters);
+  }, [monsters,searchString])
+
+
   const onSearchChange = (event) => {
   const searchField = event.target.value.toLocaleLowerCase();
   setSearchString(searchField);
@@ -31,7 +41,7 @@ const App = () => {
     classname="search-box"
     onchangeHandler={onSearchChange}
     />
-    <CardList monsters={monsters} />
+    <CardList monsters={filteredMonsters} />
     </div>
 
   )

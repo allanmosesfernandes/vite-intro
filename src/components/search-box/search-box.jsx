@@ -11,16 +11,3 @@ const SearchBox = (props) => {
 }
 
 export default SearchBox
-
-
-
-
-  // render() {
-  //   const {placeholder,classname,onChangeHandler} = this.props;
-  //   return (
-  //     <input 
-  //         type='search' 
-  //         placeholder={placeholder}
-  //         onChange={onChangeHandler} 
-  //         className={`search-box ${classname}`}/>
-  //   )
